@@ -1,14 +1,13 @@
 @use "sass:math";
-@use "./function" as fn;
 @use "./variable" as var;
 
 $breakpoints: (
-  xs:  375px,
+  xs: 375px,
   xxs: 415px,
-  sm:  576px,
-  md:  768px,
-  lg:  1024px,
-  xl:  1280px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
   2xl: 1536px,
 ) !default;
 
@@ -44,8 +43,13 @@ $breakpoints: (
   }
 }
 
-//フォント用のmixin
-@mixin font-vw($font_size: 10, $viewsize: 375) {
-  font-size: $font_size * 1px;
-  font-size: fn.get_vw($font_size, $viewsize);
+@function myClamp($min, $max, $min-view-port: 320, $max-view-port: 1200) {
+  $valiable-part: calc(($max - $min) / ($max-view-port - $min-view-port));
+  $constant: calc(($max - $max-view-port * $valiable-part) / 16);
+  $min-rem: calc($min / 16 * 1rem);
+  $max-rem: calc($max / 16 * 1rem);
+  $variable-rem: calc($constant * 1rem);
+  $variable-vw: calc(100 * $valiable-part * 1vw);
+
+  @return clamp($min-rem, $variable-rem + $variable-vw, $max-rem);
 }
