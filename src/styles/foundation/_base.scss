@@ -16,13 +16,17 @@ h1 {
   font-weight: 400;
   line-height: 1.3;
   background: linear-gradient(92.21deg, #54603f 6.06%, #a2cf4f 95.93%);
-  -webkit-background-clip:  text;
+  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-h2 {
+h2,
+.subtitle {
   font-size: myClamp(26, 42, 375, 1440);
+  font-family: $NotoSerif;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 p {
@@ -75,4 +79,24 @@ textarea {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+/* 各セクションの装飾
+------------------------------------*/
+.decor {
+  position: relative;
+  &::before {
+    content: "";
+    background-color: $secondary;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  &::after {
+    content: url(/assets/images/accent.svg);
+    width: myClamp(47, 61, 375, 1440);
+    position: absolute;
+    line-height: 0;
+  }
 }

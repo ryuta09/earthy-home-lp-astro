@@ -1,1 +1,16 @@
 @use '../global' as g;
+
+.l-container {
+  display: grid;
+  grid-template-columns: repeat(3, var(--size1)) auto repeat(3, var(--size1));
+  row-gap: 44px;
+
+  &--hero {
+    @include g.mq(md) {
+      grid-template-columns: 1026fr 378fr;
+      grid-template-rows: auto var(--size4);
+      column-gap: var(--size-harf);
+      row-gap: 0;
+    }
+  }
+}
