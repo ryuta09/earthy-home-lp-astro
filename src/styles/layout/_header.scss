@@ -1,5 +1,65 @@
-@use '../global' as g;
+@use "../global" as g;
 
 .l-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--size1);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  &__logo {
+    width: max(94px, var(--size2));
+  }
+  &__hamburger {
+    all: unset;
+    cursor: pointer;
+    width: max(46px, var(--size1));
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+    color: g.$primary;
+  }
 
+  &__navbtn-bar,
+  &__hamburger::before,
+  &__hamburger::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    grid-area: 1 / 1;
+    transition: transform 0.5s;
+  }
+
+   &__navbtn-bar {
+    transform-origin: left;
+   }
+  &__hamburger {
+    &::before {
+      transform: translateY(-12px);
+    }
+
+    &::after {
+      transform: translateY(12px);
+    }
+  }
+}
+
+body.open {
+  .l-header {
+    &__navbtn-bar {
+      transform: scale(0);
+    }
+
+    &__hamburger {
+      &::before {
+        transform: translateY(0) rotate(-45deg);
+      }
+
+      &::after {
+        transform: translateY(0) rotate(45deg);
+      }
+    }
+  }
 }

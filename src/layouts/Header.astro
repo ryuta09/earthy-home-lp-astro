@@ -1,6 +1,26 @@
 ---
-
 ---
+
 <header class="l-header">
-  ここにヘッダーが入ります
+  <img
+    class="l-header__logo"
+    src="/assets/images/logo-box.svg"
+    width="93"
+    height="76"
+    alt=""
+  />
+  <button class="l-header__hamburger">
+    <span class="l-header__navbtn-bar"></span>
+    <span class="sr-only">MENU</span>
+  </button>
 </header>
+
+<script>
+  const body = document.querySelector("body");
+  const hamburger = document.querySelector(".l-header__hamburger");
+
+  hamburger.addEventListener("click", () => {
+    body.classList.toggle("open");
+    // hamburger.classList.toggle('is-active');
+  });
+</script>
