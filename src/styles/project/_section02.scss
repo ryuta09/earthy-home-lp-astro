@@ -20,8 +20,6 @@
     @include g.mq(md) {
       text-align: left;
     }
-    .num {
-    }
 
     & > h2 {
       margin-bottom: var(--size1-half);

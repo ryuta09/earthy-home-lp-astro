@@ -1,0 +1,118 @@
+@use "../global" as g;
+
+.p-section03 {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  &__text {
+    margin-inline: var(--size1);
+    @include g.mq(md) {
+      display: grid;
+      grid-template-columns: var(--size2) 1fr;
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:
+        "num heading2"
+        ". body";
+      column-gap: var(--size1-half);
+      align-items: baseline;
+    }
+    h2 {
+      margin-bottom: 24px;
+      @include g.mq(md) {
+        grid-area: heading2;
+        margin-block-end: var(--size1-half);
+      }
+    }
+  }
+
+  &__heading {
+    @include g.mq(md) {
+      display: contents;
+    }
+
+    .num {
+      @include g.mq(md) {
+        grid-area: num;
+      }
+    }
+  }
+
+  &__body {
+    @include g.mq(md) {
+      grid-area: body;
+      max-width: 34em;
+    }
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    @include g.mq(lg) {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+
+    & > li {
+      &:nth-child(2) {
+        @include g.mq(md) {
+          margin-block-start: 140px;
+        }
+      }
+      &:nth-child(3) {
+        @include g.mq(md) {
+          margin-block-start: 280px;
+        }
+      }
+      @include g.mq(lg) {
+        flex: 1;
+        max-width: 335px;
+      }
+    }
+
+    figure {
+      height: 360px;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    h3 {
+      font-size: g.myClamp(16, 18, 375, 1440);
+      font-weight: 400;
+      margin-block-start: 12px;
+    }
+  }
+}
+
+.p-section03.decor {
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  &::before {
+    left: 0;
+    right: 0;
+    top: 30.12%;
+    bottom: 13.63%;
+    @include g.mq(md) {
+      top: 30.61%;
+      bottom: 10.37%;
+    }
+  }
+
+  &::after {
+    right: 64.25%;
+    bottom: -4.81%;
+    transform: rotate(164deg);
+    @include g.mq(lg) {
+      width: 80px;
+      right: 65.56%;
+      bottom: 4.85%;
+      transform: rotate(138deg);
+    }
+  }
+}
