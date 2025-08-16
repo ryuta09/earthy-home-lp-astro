@@ -9,8 +9,9 @@
     @include g.mq(md) {
       grid-template-columns: 1026fr 378fr;
       grid-template-rows: auto var(--size4);
-      column-gap: var(--size-harf);
+      column-gap: var(--size-half);
       row-gap: 0;
     }
   }
+
 }
