@@ -1,0 +1,93 @@
+@use "../global" as g;
+
+.p-section02 {
+  &__container {
+    display: grid;
+    @include g.mq(md) {
+      grid-template-columns: 540fr 684fr;
+      grid-template-rows: repeat(2, auto);
+      gap: var(--size1);
+      margin-inline-start: var(--size1);
+
+      grid-template-areas:
+        "photo01 photo01"
+        "photo02 text";
+    }
+  }
+
+  &__heading {
+    grid-column: 2 / -2;
+    @include g.mq(md) {
+      text-align: left;
+    }
+    .num {
+    }
+
+    & > h2 {
+      margin-bottom: var(--size1-half);
+    }
+  }
+
+  &__text {
+    display: contents;
+    @include g.mq(md) {
+      display: revert;
+      grid-area: text;
+    }
+  }
+
+  &__body {
+    order: 1;
+    grid-column: 4 / -2;
+    @include g.mq(md) {
+      max-width: 29em;
+    }
+  }
+
+  &__photo01 {
+    grid-column: 1 / -2;
+
+    @include g.mq(md) {
+      grid-area: photo01;
+      margin-inline-start: var(--size2);
+      aspect-ratio: 1224 / 731;
+      height: auto;
+    }
+  }
+
+  &__photo02 {
+    grid-column: 4 / -1;
+    height: 179px;
+    @include g.mq(md) {
+      grid-area: photo02;
+      height: auto;
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.p-section02.decor {
+  position: relative;
+  &::before {
+    left: 9.87%;
+    right: 0;
+    top: 34.55%;
+    bottom: -5.81%;
+
+    @include g.mq(md) {
+      left: 32.64%;
+      right: 0;
+      top: -7.29%;
+      bottom: -7.29%;
+    }
+  }
+
+  &::after {
+    right: 19.23%;
+    bottom: -14.85%;
+    transform: rotate(-139deg);
+  }
+}
