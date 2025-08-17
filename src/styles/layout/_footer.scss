@@ -1,5 +1,25 @@
 @use '../global' as g;
 
 .l-footer {
+  gap: 44px;
+  padding-block: 100px;
+  background-color: g.$primary;
+  color: g.$white;
 
+  &--center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__logo {
+    width: g.myClamp(120, 200, 375, 1440);
+  }
+
+  &__menu {
+    font-size: g.myClamp(14, 18, 375, 1440);
+    display: flex;
+    gap: 2em;
+  }
 }

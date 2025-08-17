@@ -1,0 +1,39 @@
+@use '../global' as g;
+
+.p-cta {
+  gap: 30px;
+  padding-block: 200px;
+
+  &--center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn {
+    font-size: g.myClamp(20, 36, 375, 1440);
+    font-family: g.$Noto;
+    font-weight: 500;
+    display: flex;
+
+    a {
+      padding: 1em;
+      border-radius: 2em;
+      color: g.$white;
+      background-color: g.$accent;
+    }
+
+    &::before {
+      content: url(/assets/images/bars-left.svg);
+      width: 2em;
+      margin-top: -1em;
+    }
+
+    &::after {
+      content: url(/assets/images/bars-right.svg);
+      width: 2em;
+      margin-top: -1em;
+    }
+  }
+}
